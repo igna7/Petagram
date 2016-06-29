@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Petagram</string>
+    <string name="mascota_1">Arturito</string>
+    <string name="raiting">5</string>
+    <string name="favoritos">Favoritos</string>
+    <string name="mContacto">Contacto</string>
+    <string name="mAbout">Acerca de</string>
+    <string name="textComment">Enviar comentario</string>
+    <string name="textCommentBox">Escribe aquí tu comentario</string>
+    <string name="correo">Correo</string>
+    <string name="nombre">Nombre</string>
+    <string name="nameAutor">Ignacio Ruben Ortuño Albarran</string>
+    <string name="bioAutor">Es un joven emprendedor y empresario, con muchas ganas de apoyar a los demás emprendedores a realizar sus ideas. Actualmente es Director General de ZONA UNIVERSITARIA.</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

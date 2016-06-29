@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    tools:context=".menu_option.FormularioContacto">
+
+    <include android:id="@+id/miActionBar3" layout="@layout/actionbar_acerca"></include>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+            <com.mikhaellopez.circularimageview.CircularImageView
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:layout_width="200dp"
+                android:layout_marginTop="20dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_height="200dp"
+                android:src="@drawable/bicycle" />
+
+            <TextView
+                android:paddingTop="@dimen/activity_vertical_margin"
+                android:layout_width="match_parent"
+                android:textAlignment="center"
+                android:textSize="25dp"
+                android:textStyle="bold"
+                android:text="@string/nameAutor"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:paddingTop="@dimen/activity_vertical_margin"
+                android:layout_width="match_parent"
+                android:paddingBottom="@dimen/activity_horizontal_margin"
+                android:paddingLeft="@dimen/activity_horizontal_margin"
+                android:paddingRight="@dimen/activity_horizontal_margin"
+                android:textSize="20dp"
+                android:textAlignment="center"
+                android:text="@string/bioAutor"
+                android:layout_height="wrap_content" />
+            </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>
