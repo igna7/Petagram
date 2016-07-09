@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.ignacioruben7.petagram.database.ConstructorMascotas;
 import com.ignacioruben7.petagram.pojo.Mascota;
 import com.ignacioruben7.petagram.R;
 
@@ -35,16 +36,21 @@ public class MascotaAdapter extends RecyclerView.Adapter<MascotaAdapter.MascotaV
     }
 
     @Override
-    public void onBindViewHolder(MascotaViewHolder mascotaViewHolder, int position) {
+    public void onBindViewHolder(final MascotaViewHolder mascotaViewHolder, int position) {
         final Mascota mascota = mascotas.get(position);
         mascotaViewHolder.imgFoto.setImageResource(mascota.getFoto());
         mascotaViewHolder.tvName.setText(mascota.getNombre());
-        mascotaViewHolder.tvRate.setText(mascota.getRate());
+        mascotaViewHolder.tvRate.setText(String.valueOf(mascota.getRate()));
 
-        mascotaViewHolder.imgBone1.setOnClickListener(new View.OnClickListener() {
+        mascotaViewHolder.imgBone1.setOnClickListener(new View.OnClickListener()  {
             @Override
             public void onClick(View view) {
-                Toast.makeText(activity,"Añadiste a "+ mascota.getNombre() + " en tus Favoritos",Toast.LENGTH_SHORT).show();
+                Toast.makeText(activity,"Haz puntuado a "+ mascota.getNombre(),Toast.LENGTH_SHORT).show();
+
+                ConstructorMascotas constructorMascotas = new ConstructorMascotas(activity);
+                constructorMascotas.darRateMascota(mascota);
+                constructorMascotas.añadirMascotaFavoritos(mascota);
+                mascotaViewHolder.tvRate.setText(String.valueOf(constructorMascotas.obtenerRatesMascotas(mascota)));
             }
         });
     }
@@ -58,8 +64,8 @@ public class MascotaAdapter extends RecyclerView.Adapter<MascotaAdapter.MascotaV
 
         private ImageView imgFoto;
         private TextView tvName;
-        private TextView tvRate;
         private ImageButton imgBone1;
+        private TextView tvRate;
 
         public MascotaViewHolder(View itemView) {
             super(itemView);

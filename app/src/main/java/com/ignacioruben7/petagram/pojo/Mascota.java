@@ -4,19 +4,24 @@ package com.ignacioruben7.petagram.pojo;
  * Created by ignacio on 23/06/16.
  */
 public class Mascota {
+    private int id;
     private String nombre;
     private int foto;
-    private String rate;
+    private int rate;
 
-    public String getRate() {
+    public Mascota() {
+
+    }
+
+    public int getRate() {
         return rate;
     }
 
-    public void setRate(String rate) {
+    public void setRate(int rate) {
         this.rate = rate;
     }
 
-    public Mascota(String nombre, int foto, String rate) {
+    public Mascota(String nombre, int foto, int rate) {
         this.nombre = nombre;
         this.foto = foto;
         this.rate = rate;
@@ -36,5 +41,13 @@ public class Mascota {
 
     public void setFoto(int foto) {
         this.foto = foto;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }

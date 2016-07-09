@@ -80,8 +80,8 @@ public class MainActivity extends AppCompatActivity {
         viewPager.setAdapter(new PageAdapter(getSupportFragmentManager(),agregarFragments()));
         tabLayout.setupWithViewPager(viewPager);
 
-        tabLayout.getTabAt(0).setIcon(R.drawable.ic_principal);
-        tabLayout.getTabAt(1).setIcon(R.drawable.ic_perfil);
+        tabLayout.getTabAt(0).setText("DESTACADOS");
+        tabLayout.getTabAt(1).setText("MASCOTAS");
     }
 
 

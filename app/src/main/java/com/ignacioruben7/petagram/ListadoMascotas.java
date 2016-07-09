@@ -31,26 +31,9 @@ public class ListadoMascotas extends AppCompatActivity {
 
         listaMascotas.setLayoutManager(llm);
 
-        inicializarListaDeMascotas();
-        inicializarAdaptador();
     }
 
-    public MascotaAdapter adapter;
-    private void inicializarAdaptador(){
-        adapter = new MascotaAdapter(mascotas, this);
-        listaMascotas.setAdapter(adapter);
-    }
 
-    public void inicializarListaDeMascotas(){
-        mascotas = new ArrayList <Mascota>();
-
-        mascotas.add(new Mascota("Snoopy",R.drawable.mascota4,"4"));
-        mascotas.add(new Mascota("Flash",R.drawable.mascota8,"4"));
-        mascotas.add(new Mascota("Arturito",R.drawable.mascota1,"5"));
-        mascotas.add(new Mascota("Miky",R.drawable.mascota7,"5"));
-        mascotas.add(new Mascota("Firulais",R.drawable.mascota2,"4"));
-
-    }
 
 
 }

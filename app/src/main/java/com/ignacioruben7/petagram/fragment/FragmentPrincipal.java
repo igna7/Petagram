@@ -12,49 +12,43 @@ import android.view.ViewGroup;
 import com.ignacioruben7.petagram.R;
 import com.ignacioruben7.petagram.adapter.MascotaAdapter;
 import com.ignacioruben7.petagram.pojo.Mascota;
+import com.ignacioruben7.petagram.presentador.IMascotasFragmentPresenter;
+import com.ignacioruben7.petagram.presentador.MascotasFragmentPresenter;
 
 import java.util.ArrayList;
 
 /**
  * Created by ignacio on 28/06/16.
  */
-public class FragmentPrincipal extends Fragment{
+public class FragmentPrincipal extends Fragment implements IMascotasFragmentView{
     private ArrayList<Mascota> mascotas;
     private RecyclerView listaMascotas;
+    private IMascotasFragmentPresenter presenter;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         //return super.onCreateView(inflater, container, savedInstanceState);
         View v = inflater.inflate(R.layout.fragment_principal,container,false);
         listaMascotas = (RecyclerView) v.findViewById(R.id.rvMascotas);
-
-        LinearLayoutManager llm = new LinearLayoutManager(getActivity());
-        llm.setOrientation(LinearLayoutManager.VERTICAL);
-
-        listaMascotas.setLayoutManager(llm);
-
-        inicializarListaDeMascotas();
-        inicializarAdaptador();
+        presenter = new MascotasFragmentPresenter(this, getContext());
         return v;
     }
-    public MascotaAdapter adapter;
-    private void inicializarAdaptador(){
-        adapter = new MascotaAdapter(mascotas, getActivity());
-        listaMascotas.setAdapter(adapter);
+
+    @Override
+    public void generarLinearLayoutVertical() {
+        LinearLayoutManager llm = new LinearLayoutManager(getActivity());
+        llm.setOrientation(LinearLayoutManager.VERTICAL);
+        listaMascotas.setLayoutManager(llm);
     }
 
-    public void inicializarListaDeMascotas(){
-        mascotas = new ArrayList <Mascota>();
+    @Override
+    public MascotaAdapter crearAdaptador(ArrayList<Mascota> mascotas) {
+        MascotaAdapter adapter = new MascotaAdapter(mascotas, getActivity());
+        return adapter;
+    }
 
-        mascotas.add(new Mascota("Arturito",R.drawable.mascota1,"5"));
-        mascotas.add(new Mascota("Firulais",R.drawable.mascota2,"4"));
-        mascotas.add(new Mascota("Shakiro",R.drawable.mascota3,"2"));
-        mascotas.add(new Mascota("Snoopy",R.drawable.mascota4,"4"));
-        mascotas.add(new Mascota("Ojitos",R.drawable.mascota5,"3"));
-        mascotas.add(new Mascota("Alex",R.drawable.mascota6,"4"));
-        mascotas.add(new Mascota("Miky",R.drawable.mascota7,"5"));
-        mascotas.add(new Mascota("Flash",R.drawable.mascota8,"4"));
-        mascotas.add(new Mascota("Terminator",R.drawable.mascota9,"3"));
-
+    @Override
+    public void inicializarAdaptadorRV(MascotaAdapter adaptador) {
+        listaMascotas.setAdapter(adaptador);
     }
 }
